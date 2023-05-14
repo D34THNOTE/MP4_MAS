@@ -23,6 +23,13 @@ public class Task {
         return Collections.unmodifiableSortedSet(extent);
     }
 
+    public static void removeTaskFromExtent(Task task) {
+        if(task == null) throw new IllegalArgumentException("Please choose a task to remove");
+        if(!extent.contains(task)) throw new IllegalArgumentException("Chosen task doesn't exist in the database");
+
+        extent.remove(task);
+    }
+
     public String getTitle() {
         return title;
     }

@@ -3,11 +3,9 @@ package models.subset;
 import model.subset.Component;
 import model.subset.ComponentType;
 import model.subset.Motherboard;
-import model.unique.Car;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import java.time.LocalDate;
 
 import static org.junit.Assert.*;
 
