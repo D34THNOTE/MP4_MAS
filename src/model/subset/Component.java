@@ -53,6 +53,18 @@ public class Component {
 
 
 
+    public Motherboard getMotherboard() {
+        return motherboard;
+    }
+
+    public Motherboard getMotherboardProcesses() {
+        return motherboardProcesses;
+    }
+
+
+
+
+
     private static void linkComponent(Component component, Motherboard motherboard) {
         component.motherboard = motherboard;
         if(component.componentType.equals(ComponentType.CPU)) component.motherboardProcesses = motherboard;
