@@ -33,7 +33,7 @@ public class OrderedTest {
         Task task3 = new Task("Do things 3", "Writing this down hoping I will do things 3");
         assertTrue(Task.getExtent().contains(task3));
         assertEquals(3, Task.getExtent().size()); // I have NO idea why this fails, when you go into debug you can clearly see that elements are being
-        // added to the extent
+        // added to the extent, the test even passes if you use debug mode and put breakpoint in the getter for example!
 
         Task task4 = new Task("Do things 4", "Writing this down hoping I will do things 4");
         assertTrue(Task.getExtent().contains(task4));

@@ -12,7 +12,6 @@ public class Enrollment {
 
     private Course course;
 
-    //TODO implement all these attributes
     private LocalDate startDate, endDate;
 
     private Integer finalGrade;
@@ -35,7 +34,7 @@ public class Enrollment {
 
     public static void addEnrollment(Enrollment enrollment) {
         if(enrollment == null) throw new IllegalArgumentException("Enrollment to be added cannot be empty");
-        verifyDatesOfEnrollment(enrollment); // verifying the same relation won't have a start/end date colliding with an already existing relation
+        if(!extent.contains(enrollment)) verifyDatesOfEnrollment(enrollment); // verifying the same relation won't have a start/end date colliding with an already existing relation
 
         extent.add(enrollment);
 
@@ -105,10 +104,10 @@ public class Enrollment {
     private static void verifyDatesOfEnrollment(Enrollment enrollment) {
         for(Enrollment possibleCollision : extent) {
             if(enrollment.student.equals(possibleCollision.student) && enrollment.course.equals(possibleCollision.course)) {
-                if(enrollment.startDate.isAfter(possibleCollision.startDate) || enrollment.startDate.isBefore(possibleCollision.endDate))
+                if(enrollment.startDate.isAfter(possibleCollision.startDate) && enrollment.startDate.isBefore(possibleCollision.endDate))
                     throw new IllegalArgumentException("Start date of this enrollment collides with an already existing enrollment");
 
-                if(enrollment.endDate.isAfter(possibleCollision.startDate) || enrollment.endDate.isBefore(possibleCollision.endDate))
+                if(enrollment.endDate.isAfter(possibleCollision.startDate) && enrollment.endDate.isBefore(possibleCollision.endDate))
                     throw new IllegalArgumentException("End date of this enrollment collides with an already existing enrollment");
             }
         }

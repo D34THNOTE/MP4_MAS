@@ -1,6 +1,7 @@
 package models.unique;
 
 import model.unique.Car;
+
 import org.junit.Before;
 import org.junit.Test;
 
