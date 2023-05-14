@@ -113,6 +113,7 @@ public class BankAccount {
 
     public void setDateOfBirth(LocalDate dateOfBirth) { // dynamic
         if(dateOfBirth == null) throw new IllegalArgumentException("Date of birth is required");
+        if(minimumAge == null) throw new IllegalArgumentException("Minimum age isn't set - no accounts can be created");
         Period age = Period.between(dateOfBirth, LocalDate.now());
         if(age.getYears() < minimumAge) throw new IllegalArgumentException("This person's age is below the minimum allowed age");
 
