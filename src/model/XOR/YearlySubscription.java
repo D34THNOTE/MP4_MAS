@@ -9,6 +9,7 @@ public class YearlySubscription {
     private LocalDate startDate, endDate;
 
     public YearlySubscription(Customer customer, double yearlyFee_pln) {
+        if(customer == null) throw new IllegalArgumentException("Cannot create a subscription without an owner");
         setCustomer(customer);
         setYearlyFee_pln(yearlyFee_pln);
 
